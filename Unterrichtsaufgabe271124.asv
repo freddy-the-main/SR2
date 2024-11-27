@@ -1,0 +1,14 @@
+clear 
+clc
+clf
+
+% ermitteln sie die abeleitung 1 und 2 von y=ln(t) t=1
+
+Tinterval = 0.001;
+t=[0:Tinterval:2];
+y= log(t);
+
+t0 = find()
+
+plot(t,y)
+grid

@@ -76,23 +76,26 @@ uu = (DDdyF + alpha * DdyF + beta * dyF) / gamma;
 
 yPT1 = tf(k, [1 a]);
 yPT2 = tf(gamma, [1 alpha beta]);
+yPT2Ident = tf(0.002722, [1 0.1348 0.004516]);
 
 dyresponsept1 = lsim(yPT1, du, t);
 dyresponsept2 = lsim(yPT2, du, t);
+dyresponsept2Ident = lsim(yPT2Ident, du, t);
+
+
 
 
 
 dy = dy(1:end-2);
 %% Plot
-figure(1)
-hold on
-grid on
-plot(t,dy)
-plot(t,dyF)
-plot(t,DdyF)
-plot(t,DDdyF)
-plot(t,du)
-axis equal
+% figure(1)
+% hold on
+% grid on
+% plot(t,dy)
+% plot(t,dyF)
+% plot(t,DdyF)
+% plot(t,DDdyF)
+% plot(t,du)
 figure(2)
 %plot(t,uu)
 hold on
@@ -102,5 +105,10 @@ plot(t,dyF,'r')
 figure(3)
 hold on
 plot(t,dyresponsept2,'b')
+plot(t, dyF,'r')
+
+figure(4)
+hold on
+plot(t,dyresponsept2Ident,'b')
 plot(t, dyF,'r')
 
